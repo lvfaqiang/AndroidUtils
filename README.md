@@ -14,6 +14,6 @@
 	
 最新[版本号](https://github.com/lvfaqiang/AndroidUtils/releases)戳这里
 
-功能清单整理ing
+[功能清单](https://github.com/lvfaqiang/AndroidUtils/wiki)
 
 ### 以上纯属个人项目工具类整理。
