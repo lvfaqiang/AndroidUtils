@@ -6,12 +6,16 @@ import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
 import android.util.Base64;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -280,6 +284,7 @@ public class LvSpUtil {
 		}
 		return list;
 	}*/
+    @Deprecated
     public static String setListString(List<?> list)
             throws IOException {
         // 实例化一个ByteArrayOutputStream对象，用来装载压缩后的字节文件。
@@ -298,6 +303,7 @@ public class LvSpUtil {
     }
 
     @SuppressWarnings("unchecked")
+    @Deprecated
     public static List<?> getListString(String string) throws StreamCorruptedException, IOException,
             ClassNotFoundException {
         byte[] mobileBytes = Base64.decode(string.getBytes(), Base64.DEFAULT);
@@ -315,6 +321,7 @@ public class LvSpUtil {
      * @param list
      * @param key
      */
+    @Deprecated
     public static void setListObj(Context context, List<?> list, String key) {
         Editor editor = getSp(context).edit();
         try {
@@ -333,6 +340,7 @@ public class LvSpUtil {
      * @param key
      * @return
      */
+    @Deprecated
     public static List getListObj(Context context, String key) {
         List<?> list = new ArrayList();
         String str = getSp(context).getString(key, "");
@@ -369,5 +377,68 @@ public class LvSpUtil {
         Editor editor = getSp(context).edit();
         editor.clear();
         editor.commit();
+    }
+
+    /**
+     * 保存对象（任意对象类型）可传 List, Map等。
+     * @param context
+     * @param key
+     * @param t
+     * @param <T>
+     */
+    public static <T> void setT(Context context, String key, T t) {
+        Gson go = new Gson();
+        String str = go.toJson(t);
+        setString(context, key, str);
+    }
+
+    public static Object getObject(Context context, String key, Class clazz) {
+        Object o = null;
+        String str = getString(context, key, "");
+        if (!TextUtils.isEmpty(str)) {
+            Gson go = new Gson();
+            o = go.fromJson(str, clazz);
+        }
+        return o;
+    }
+
+    /**
+     * recommend to use getT
+     *
+     * @param context
+     * @param key
+     * @param type
+     * @return
+     */
+    @Deprecated
+    public static Object getObject(Context context, String key, Type type) {
+        Object o = null;
+        String str = getString(context, key, "");
+        if (!TextUtils.isEmpty(str)) {
+            Gson gson = new Gson();
+            o = gson.fromJson(str, type);
+        }
+        return o;
+    }
+
+    /**
+     * 获取保存的对象
+     *
+     * @param context context
+     * @param key     key
+     * @param t       对象类型
+     * @param <T>
+     * @return t
+     */
+    public static <T> T getT(Context context, String key, T t) {
+
+        String str = getString(context, key, "");
+        if (!TextUtils.isEmpty(str)) {
+            Gson gson = new Gson();
+            t = gson.fromJson(str, new TypeToken<T>() {
+            }.getType());
+        }
+//        return o;
+        return t;
     }
 }
