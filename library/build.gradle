@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -19,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -28,4 +33,13 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
+}
+
+publish {
+    userOrg = 'lvfaqiang'//bintray.com注册的用户名
+    groupId = 'com.lfq'//jcenter上的路径
+    artifactId = 'MyAndroidUtil'//上传到 Jcenter 的项目名称
+    publishVersion = '1.0.1'//版本号
+    desc = ''//选填
+    website = 'https://github.com/lvfaqiang/AndroidUtil'//选填；可以填写你 Github 上的当前项目地址。
 }
