@@ -11,12 +11,12 @@ public class LvLog {
     public static boolean on;
 
     /**
-     * init configure
+     * initSp configure
      *
      * @param tag
      * @param isOpen
      */
-    public static void init(String tag, boolean isOpen) {
+    public static void initLog(String tag, boolean isOpen) {
         TAG = tag;
         on = isOpen;
     }

@@ -33,23 +33,23 @@ public class LvSpUtil {
     private static SharedPreferences sp;
 
     /**
-     * init configure
+     * initSp configure
      *
      * @param spName
      */
-    public static void init(String spName) {
+    public static void initSp(String spName) {
         if (!TextUtils.isEmpty(SP_NAME)) {
-            throw new RuntimeException("Please don't repeat calls LvSpUitl init method");
+            throw new RuntimeException("Please don't repeat calls LvSpUitl initSp method");
         }
         SP_NAME = spName;
     }
 
-    private static SharedPreferences getSp(Context context) {
+    private static SharedPreferences getSp() {
         if (TextUtils.isEmpty(SP_NAME)) {
-            throw new RuntimeException("Please call LvSpUtil init method in your Application");
+            throw new RuntimeException("Please call LvSpUtil initSp method in your Application");
         }
         if (sp == null) {
-            sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+            sp = LvUtils.getContext().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         }
         return sp;
     }
@@ -57,37 +57,34 @@ public class LvSpUtil {
     /**
      * 获取boolean 数据
      *
-     * @param context
      * @param key
      * @return 如果没有值，返回false
      */
-    public static boolean getBoolean(Context context, String key) {
-        SharedPreferences sp = getSp(context);
+    public static boolean getBoolean(String key) {
+        SharedPreferences sp = getSp();
         return sp.getBoolean(key, false);
     }
 
     /**
      * 获取boolean 数据
      *
-     * @param context
      * @param key
      * @param defValue
      * @return
      */
-    public static boolean getBoolean(Context context, String key, boolean defValue) {
-        SharedPreferences sp = getSp(context);
+    public static boolean getBoolean(String key, boolean defValue) {
+        SharedPreferences sp = getSp();
         return sp.getBoolean(key, defValue);
     }
 
     /**
      * 存boolean缓存
      *
-     * @param context
      * @param key
      * @param value
      */
-    public static void setBoolean(Context context, String key, boolean value) {
-        SharedPreferences sp = getSp(context);
+    public static void setBoolean(String key, boolean value) {
+        SharedPreferences sp = getSp();
         Editor editor = sp.edit();
         editor.putBoolean(key, value);
         editor.commit();
@@ -96,37 +93,34 @@ public class LvSpUtil {
     /**
      * 获取String 数据
      *
-     * @param context
      * @param key
      * @return 如果没有值，返回null
      */
-    public static String getString(Context context, String key) {
-        SharedPreferences sp = getSp(context);
+    public static String getString(String key) {
+        SharedPreferences sp = getSp();
         return sp.getString(key, null);
     }
 
     /**
      * 获取String 数据
      *
-     * @param context
      * @param key
      * @param defValue
      * @return
      */
-    public static String getString(Context context, String key, String defValue) {
-        SharedPreferences sp = getSp(context);
+    public static String getString(String key, String defValue) {
+        SharedPreferences sp = getSp();
         return sp.getString(key, defValue);
     }
 
     /**
      * 存String缓存
      *
-     * @param context
      * @param key
      * @param value
      */
-    public static void setString(Context context, String key, String value) {
-        SharedPreferences sp = getSp(context);
+    public static void setString(String key, String value) {
+        SharedPreferences sp = getSp();
         Editor editor = sp.edit();
         editor.putString(key, value);
         editor.commit();
@@ -135,37 +129,34 @@ public class LvSpUtil {
     /**
      * 获取int 数据
      *
-     * @param context
      * @param key
      * @return 如果没有值，返回-1
      */
-    public static int getInt(Context context, String key) {
-        SharedPreferences sp = getSp(context);
+    public static int getInt(String key) {
+        SharedPreferences sp = getSp();
         return sp.getInt(key, -1);
     }
 
     /**
      * 获取int 数据
      *
-     * @param context
      * @param key
      * @param defValue
      * @return
      */
-    public static int getInt(Context context, String key, int defValue) {
-        SharedPreferences sp = getSp(context);
+    public static int getInt(String key, int defValue) {
+        SharedPreferences sp = getSp();
         return sp.getInt(key, defValue);
     }
 
     /**
      * 存int缓存
      *
-     * @param context
      * @param key
      * @param value
      */
-    public static void setInt(Context context, String key, int value) {
-        SharedPreferences sp = getSp(context);
+    public static void setInt(String key, int value) {
+        SharedPreferences sp = getSp();
         Editor editor = sp.edit();
         editor.putInt(key, value);
         editor.commit();
@@ -175,69 +166,64 @@ public class LvSpUtil {
     /**
      * 获取int 数据
      *
-     * @param context
      * @param key
      * @return 如果没有值，返回-1
      */
-    public static long getLong(Context context, String key) {
-        SharedPreferences sp = getSp(context);
+    public static long getLong(String key) {
+        SharedPreferences sp = getSp();
         return sp.getLong(key, -1);
     }
 
     /**
      * 获取int 数据
      *
-     * @param context
      * @param key
      * @param defValue
      * @return
      */
-    public static long getLong(Context context, String key, long defValue) {
-        SharedPreferences sp = getSp(context);
+    public static long getLong(String key, long defValue) {
+        SharedPreferences sp = getSp();
         return sp.getLong(key, defValue);
     }
 
     /**
      * 存int缓存
      *
-     * @param context
      * @param key
      * @param value
      */
-    public static void setLong(Context context, String key, long value) {
-        SharedPreferences sp = getSp(context);
+    public static void setLong(String key, long value) {
+        SharedPreferences sp = getSp();
         Editor editor = sp.edit();
         editor.putLong(key, value);
         editor.commit();
     }
 
-    public static float getFloat(Context context, String key) {
-        SharedPreferences sp = getSp(context);
+    public static float getFloat(String key) {
+        SharedPreferences sp = getSp();
         return sp.getFloat(key, 0);
     }
 
     /**
      * 获取int 数据
      *
-     * @param context
      * @param key
      * @param defValue
      * @return
      */
-    public static float getFloat(Context context, String key, float defValue) {
-        SharedPreferences sp = getSp(context);
+    public static float getFloat(String key, float defValue) {
+        SharedPreferences sp = getSp();
         return sp.getFloat(key, defValue);
     }
 
     /**
      * 存int缓存
      *
-     * @param context
      * @param key
      * @param value
      */
-    public static void setFloat(Context context, String key, float value) {
-        SharedPreferences sp = getSp(context);
+    public static void setFloat(String key, float value) {
+        SharedPreferences sp = getSp();
         Editor editor = sp.edit();
         editor.putFloat(key, value);
         editor.commit();
@@ -317,13 +303,12 @@ public class LvSpUtil {
     /**
      * 保存list 数据
      *
-     * @param context
      * @param list
      * @param key
      */
     @Deprecated
-    public static void setListObj(Context context, List<?> list, String key) {
-        Editor editor = getSp(context).edit();
+    public static void setListObj(List<?> list, String key) {
+        Editor editor = getSp().edit();
         try {
             String str = setListString(list);
             editor.putString(key, str);
@@ -336,14 +321,13 @@ public class LvSpUtil {
     /**
      * 获取保存的list对象
      *
-     * @param context
      * @param key
      * @return
      */
     @Deprecated
-    public static List getListObj(Context context, String key) {
+    public static List getListObj(String key) {
         List<?> list = new ArrayList();
-        String str = getSp(context).getString(key, "");
+        String str = getSp().getString(key, "");
         try {
             list = getListString(str);
             return list;
@@ -359,42 +343,39 @@ public class LvSpUtil {
     /**
      * 移除某一个key所对应的值
      *
-     * @param context
      * @param key
      */
-    public static void remove(Context context, String key) {
-        Editor editor = getSp(context).edit();
+    public static void remove(String key) {
+        Editor editor = getSp().edit();
         editor.remove(key);
         editor.commit();
     }
 
     /**
      * 移除Sp文件里面的所有数据
-     *
-     * @param context
      */
-    public static void clear(Context context) {
-        Editor editor = getSp(context).edit();
+    public static void clear() {
+        Editor editor = getSp().edit();
         editor.clear();
         editor.commit();
     }
 
     /**
      * 保存对象（任意对象类型）可传 List, Map等。
-     * @param context
+     *
      * @param key
      * @param t
      * @param <T>
      */
-    public static <T> void setT(Context context, String key, T t) {
+    public static <T> void setT(String key, T t) {
         Gson go = new Gson();
         String str = go.toJson(t);
-        setString(context, key, str);
+        setString(key, str);
     }
 
-    public static Object getObject(Context context, String key, Class clazz) {
+    public static Object getObject(String key, Class clazz) {
         Object o = null;
-        String str = getString(context, key, "");
+        String str = getString(key, "");
         if (!TextUtils.isEmpty(str)) {
             Gson go = new Gson();
             o = go.fromJson(str, clazz);
@@ -405,15 +386,14 @@ public class LvSpUtil {
     /**
      * recommend to use getT
      *
-     * @param context
      * @param key
      * @param type
      * @return
      */
     @Deprecated
-    public static Object getObject(Context context, String key, Type type) {
+    public static Object getObject(String key, Type type) {
         Object o = null;
-        String str = getString(context, key, "");
+        String str = getString(key, "");
         if (!TextUtils.isEmpty(str)) {
             Gson gson = new Gson();
             o = gson.fromJson(str, type);
@@ -424,15 +404,14 @@ public class LvSpUtil {
     /**
      * 获取保存的对象
      *
-     * @param context context
-     * @param key     key
-     * @param t       对象类型
+     * @param key key
+     * @param t   对象类型
      * @param <T>
      * @return t
      */
-    public static <T> T getT(Context context, String key, T t) {
+    public static <T> T getT(String key, T t) {
 
-        String str = getString(context, key, "");
+        String str = getString(key, "");
         if (!TextUtils.isEmpty(str)) {
             Gson gson = new Gson();
             t = gson.fromJson(str, new TypeToken<T>() {

@@ -20,8 +20,8 @@ public class LvScreenUtil {
      *
      * @return 屏幕宽px
      */
-    public static int getScreenWidth(Context context) {
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenWidth() {
+        WindowManager windowManager = (WindowManager) LvUtils.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();// 创建了一张白纸
         windowManager.getDefaultDisplay().getMetrics(dm);// 给白纸设置宽高
         return dm.widthPixels;
@@ -32,8 +32,8 @@ public class LvScreenUtil {
      *
      * @return 屏幕高px
      */
-    public static int getScreenHeight(Context context) {
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenHeight() {
+        WindowManager windowManager = (WindowManager) LvUtils.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();// 创建了一张白纸
         windowManager.getDefaultDisplay().getMetrics(dm);// 给白纸设置宽高
         return dm.heightPixels;
