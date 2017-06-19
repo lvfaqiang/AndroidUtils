@@ -11,7 +11,7 @@ import java.util.Stack;
  *
  * @author lvfq
  * @date 2017/6/16 上午10:22
- * @mainFunction :
+ * @mainFunction : Activity 管理类。
  */
 
 public class LvAppManager {

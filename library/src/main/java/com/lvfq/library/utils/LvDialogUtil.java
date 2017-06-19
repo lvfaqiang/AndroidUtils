@@ -15,7 +15,7 @@ import com.lvfq.library.R;
  *
  * @author lvfq
  * @date 2017/4/13 下午4:36
- * @mainFunction :
+ * @mainFunction : 创建Dialog工具类。
  */
 
 public class LvDialogUtil {
