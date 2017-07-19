@@ -1,5 +1,8 @@
 # AndroidUtils
 整理项目常用的各种工具类
+
+[![](https://jitpack.io/v/lvfaqiang/AndroidUtils.svg)](https://jitpack.io/#lvfaqiang/AndroidUtils)
+
 # How to 
 先在 build.gradle(Project:XXXX) 的 repositories 添加:
 
