@@ -100,7 +100,7 @@ public class LvSpUtil {
      */
     public static String getString(String key) {
         SharedPreferences sp = getSp();
-        return sp.getString(key, null);
+        return sp.getString(key, "");
     }
 
     /**

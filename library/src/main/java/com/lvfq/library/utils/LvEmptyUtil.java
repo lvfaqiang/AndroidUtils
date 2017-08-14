@@ -68,4 +68,34 @@ public class LvEmptyUtil {
     public static boolean isNotEmpty(Object obj) {
         return !isEmpty(obj);
     }
+
+    /**
+     * 判断多对象是否为空
+     *
+     * @param objs 多个对象
+     * @return {@code true}: 空<br>{@code false}: 非空
+     */
+    public static boolean isEmpty(Object... objs) {
+        for (Object obj : objs) {
+            if (isNotEmpty(obj)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 判断多对象是否为空
+     *
+     * @param objs 多个对象
+     * @return {@code true}: 非空<br>{@code false}: 空
+     */
+    public static boolean isNotEmpty(Object... objs) {
+        for (Object obj : objs) {
+            if (isEmpty(obj)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
