@@ -75,7 +75,7 @@ public class LvEmptyUtil {
      * @param objs 多个对象
      * @return {@code true}: 空<br>{@code false}: 非空
      */
-    public static boolean isEmpty(Object... objs) {
+    public static boolean isEmptys(Object... objs) {
         for (Object obj : objs) {
             if (isNotEmpty(obj)) {
                 return false;
@@ -90,7 +90,7 @@ public class LvEmptyUtil {
      * @param objs 多个对象
      * @return {@code true}: 非空<br>{@code false}: 空
      */
-    public static boolean isNotEmpty(Object... objs) {
+    public static boolean isNotEmptys(Object... objs) {
         for (Object obj : objs) {
             if (isEmpty(obj)) {
                 return false;
