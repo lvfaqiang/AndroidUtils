@@ -52,6 +52,9 @@ public class LvAppManager {
      * 获取当前Activity（堆栈中最后一个压入的）
      */
     public Activity currentActivity() {
+        if (activityStack == null) {
+            return null;
+        }
         Activity activity = activityStack.lastElement();
         return activity;
     }
@@ -60,6 +63,9 @@ public class LvAppManager {
      * 结束当前Activity（堆栈中最后一个压入的）
      */
     public void finishActivity() {
+        if (activityStack == null) {
+            return;
+        }
         Activity activity = activityStack.lastElement();
         finishActivity(activity);
     }
@@ -68,7 +74,7 @@ public class LvAppManager {
      * 结束指定的Activity
      */
     public void finishActivity(Activity activity) {
-        if (activity != null) {
+        if (activity != null && activityStack != null) {
             activityStack.remove(activity);
             activity.finish();
         }
@@ -78,6 +84,9 @@ public class LvAppManager {
      * 结束指定类名的Activity
      */
     public void finishActivity(Class<?> cls) {
+        if (activityStack == null) {
+            return;
+        }
         for (Activity activity : activityStack) {
             if (activity.getClass().equals(cls)) {
                 finishActivity(activity);
@@ -89,6 +98,9 @@ public class LvAppManager {
      * 结束所有Activity
      */
     public void finishAllActivity() {
+        if (activityStack == null) {
+            return;
+        }
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (null != activityStack.get(i)) {
                 activityStack.get(i).finish();
@@ -102,12 +114,15 @@ public class LvAppManager {
      */
     public void AppExit() {
         try {
-            finishAllActivity();
-//            ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-//            activityMgr.restartPackage(context.getPackageName());
+            if (activityStack != null) {
+                finishAllActivity();
+            }
+//            ActivityManager activityMgr = (ActivityManager) LvUtils.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+//            activityMgr.restartPackage( LvUtils.getContext().getPackageName());
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

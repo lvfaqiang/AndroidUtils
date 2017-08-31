@@ -61,7 +61,6 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
 
     private boolean isMustUpdate = false;   // 是否强制更新
     private boolean cancelUpdate = false;   // 是否取消下载
-    private boolean isDownloading = false;  // 是否正在下载
 
 
     private Context context;
@@ -122,7 +121,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * 初始化
      *
      * @param context
-     * @param downlaodUrl 下载地址
+     * @param downlaodUrl  下载地址
      * @param apkName      安装包名称
      * @param isMustUpdate 是否强制更新
      * @param scale        宽度比
@@ -149,7 +148,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
     /**
      * @param context
      * @param downlaodUrl 下载路径
-     * @param apkName      安装包名称
+     * @param apkName     安装包名称
      */
     public LvDownloadDialog(Context context, String downlaodUrl, String apkName) {
         this(context, downlaodUrl, apkName, false, 0);
