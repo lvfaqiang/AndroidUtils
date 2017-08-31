@@ -132,7 +132,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
         this.context = context;
         this.isMustUpdate = isMustUpdate;
 
-        if (LvEmptyUtil.isEmpty(downlaodPath)) {
+        if (LvEmptyUtil.isEmpty(downlaodUrl)) {
             throw new RuntimeException("downloadPath can't is null");
         } else {
             this.downlaodPath = downlaodUrl;
