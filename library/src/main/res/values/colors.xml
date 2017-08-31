@@ -2,4 +2,10 @@
 <resources>
     <!--覆盖颜色-->
     <color name="bgColor_overlay">#60000000</color>
+
+    <color name="color_dd">#dddddd</color>
+    <color name="color_red">#ff0000</color>
+    <color name="color_f7">#f7f7f7</color>
+    <color name="color_e0">#e0e0e0</color>
+
 </resources>

@@ -37,7 +37,7 @@ public class LvUtils {
         if (LvEmptyUtil.isNotEmpty(util) && LvEmptyUtil.isNotEmpty(util.context)) {
             return util.context;
         }
-        throw new NullPointerException("u should initSp first");
+        throw new NullPointerException("u should init first - > LvUtils.init(Context) in your Application");
     }
 
     /**

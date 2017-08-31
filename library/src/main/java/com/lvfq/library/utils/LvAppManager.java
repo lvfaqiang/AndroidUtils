@@ -1,8 +1,6 @@
 package com.lvfq.library.utils;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
 
 import java.util.Stack;
 
@@ -102,11 +100,12 @@ public class LvAppManager {
     /**
      * 退出应用程序
      */
-    public void AppExit(Context context) {
+    public void AppExit() {
         try {
             finishAllActivity();
-            ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            activityMgr.restartPackage(context.getPackageName());
+//            ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//            activityMgr.restartPackage(context.getPackageName());
+            android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
         } catch (Exception e) {
         }

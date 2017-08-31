@@ -28,19 +28,7 @@ public class LvDialogUtil {
      * @return
      */
     public static Dialog createDialog(Context context, View view, float scale) {
-
-        final Dialog dialog = new Dialog(context, R.style.style_loading_light_dialog);
-        dialog.setContentView(view);
-        dialog.setCancelable(true);
-        dialog.setCanceledOnTouchOutside(true);
-
-        Display dm = ((Activity) context).getWindowManager().getDefaultDisplay();
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = (int) (dm.getWidth() * scale);
-        dialog.getWindow().setAttributes(lp);
-        dialog.show();
-
-        return dialog;
+        return createDialog(context, view, scale, -1);
     }
 
     /**
@@ -60,7 +48,9 @@ public class LvDialogUtil {
         dialog.setCanceledOnTouchOutside(true);
 
         Window window = dialog.getWindow();
-        window.setGravity(gravity);
+        if (gravity != -1) {
+            window.setGravity(gravity);
+        }
 
         Display dm = ((Activity) context).getWindowManager().getDefaultDisplay();
         WindowManager.LayoutParams lp = window.getAttributes();

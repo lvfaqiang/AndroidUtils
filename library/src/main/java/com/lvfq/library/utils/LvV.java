@@ -1,6 +1,7 @@
 package com.lvfq.library.utils;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.view.View;
 
 /**
@@ -35,4 +36,16 @@ public class LvV {
         return (T) view.findViewById(id);
     }
 
+
+    /**
+     * 简化 Dialog 中的findViewById
+     *
+     * @param dialog
+     * @param id
+     * @param <T>
+     * @return
+     */
+    public static <T extends View> T find(Dialog dialog, int id) {
+        return (T) dialog.findViewById(id);
+    }
 }

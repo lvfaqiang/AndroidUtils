@@ -9,4 +9,10 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="style_line_hor_color_dd">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/px_1</item>
+        <item name="android:background">@color/color_dd</item>
+    </style>
+
 </resources>

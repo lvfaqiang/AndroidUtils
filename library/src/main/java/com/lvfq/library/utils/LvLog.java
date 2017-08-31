@@ -7,7 +7,7 @@ import android.util.Log;
  * @version 2015-10-13 上午9:52:46
  */
 public class LvLog {
-    public static String TAG;
+    public static String TAG = "LvUtils";   // default value
     public static boolean on;
 
     /**

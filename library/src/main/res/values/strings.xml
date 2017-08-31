@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">library</string>
+
+    <string name="str_version_upadte">版本更新</string>
+    <string name="str_confirm">确定</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_update">更新</string>
+
+    <string name="str_have_new_version">有新版本发布</string>
 </resources>
