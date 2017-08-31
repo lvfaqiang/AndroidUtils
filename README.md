@@ -19,4 +19,6 @@
 
 [功能清单](https://github.com/lvfaqiang/AndroidUtils/wiki)
 
+[更新日志](https://github.com/lvfaqiang/AndroidUtils/wiki/Log)
+
 ### 以上纯属个人项目工具类整理。
