@@ -91,7 +91,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * @param apkName
      */
     public void setApkName(String apkName) {
-        if (LvEmptyUtil.isEmpty(apkName)) {
+        if (LvEmptyUtil.isNull(apkName)) {
             throw new NullPointerException("download apkName is null");
         }
         this.apkName = apkName;
@@ -131,13 +131,13 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
         this.context = context;
         this.isMustUpdate = isMustUpdate;
 
-        if (LvEmptyUtil.isEmpty(downlaodUrl)) {
+        if (LvEmptyUtil.isNull(downlaodUrl)) {
             throw new RuntimeException("downloadPath can't is null");
         } else {
             this.downlaodPath = downlaodUrl;
         }
 
-        if (LvEmptyUtil.isNotEmpty(apkName)) {
+        if (LvEmptyUtil.isNotNull(apkName)) {
             this.apkName = apkName;
         }
         if (scale != 0) {

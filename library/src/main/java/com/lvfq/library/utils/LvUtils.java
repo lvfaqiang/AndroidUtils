@@ -34,7 +34,7 @@ public class LvUtils {
     }
 
     public static Context getContext() {
-        if (LvEmptyUtil.isNotEmpty(util) && LvEmptyUtil.isNotEmpty(util.context)) {
+        if (LvEmptyUtil.isNotNull(util) && LvEmptyUtil.isNotNull(util.context)) {
             return util.context;
         }
         throw new NullPointerException("u should init first - > LvUtils.init(Context) in your Application");

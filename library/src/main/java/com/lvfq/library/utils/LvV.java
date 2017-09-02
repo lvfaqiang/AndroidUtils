@@ -48,4 +48,18 @@ public class LvV {
     public static <T extends View> T find(Dialog dialog, int id) {
         return (T) dialog.findViewById(id);
     }
+
+    /**
+     * 设置 View 的 OnClick 事件
+     *
+     * @param listener
+     * @param views
+     */
+    public static void click(View.OnClickListener listener, View... views) {
+        for (View view : views) {
+            if (view != null) {
+                view.setOnClickListener(listener);
+            }
+        }
+    }
 }
