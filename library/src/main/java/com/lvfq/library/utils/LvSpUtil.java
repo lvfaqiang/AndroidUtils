@@ -6,12 +6,6 @@ import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
 import android.util.Base64;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -360,72 +354,6 @@ public class LvSpUtil {
         Editor editor = getSp().edit();
         editor.clear();
         editor.commit();
-    }
-
-
-    /**
-     * 保存对象（所有类型）
-     *
-     * @param key
-     * @param t
-     * @param <T>
-     */
-    public static <T> void setT(String key, T t) {
-        setString(key, new Gson().toJson(t));
-    }
-
-
-    /**
-     * 获取保存的对象
-     *
-     * @param key
-     * @param tClass
-     * @param <T>
-     * @return
-     */
-    public static <T> T getT(String key, Class<T> tClass) {
-        T t = null;
-        String str = getString(key, "");
-        if (!TextUtils.isEmpty(str)) {
-            Gson go = new Gson();
-            t = go.fromJson(str, tClass);
-        }
-        return t;
-    }
-
-    /**
-     * 获取保存的对象,支持所有类型对象。
-     * (主要获取集合的时候使用)
-     *
-     * @param key
-     * @param type
-     * @return
-     */
-    public static <T> T getT(String key, TypeToken<T> type) {
-        T o = null;
-        String str = getString(key, "");
-        if (!TextUtils.isEmpty(str)) {
-            Gson gson = new Gson();
-            o = gson.fromJson(str, type.getType());
-        }
-        return o;
-    }
-
-    /**
-     * 获取保存的对象（支持非集合类Class)
-     *
-     * @param key k
-     * @param <T>
-     * @return t
-     */
-    public static <T> List<T> getList(String key, Class<T> cls) {
-        List<T> list = new ArrayList<>();
-        String str = getString(key, "");
-        JsonArray array = new JsonParser().parse(str).getAsJsonArray();
-        for (final JsonElement elem : array) {
-            list.add(new Gson().fromJson(elem, cls));
-        }
-        return list;
     }
 
 }
