@@ -4,7 +4,7 @@
 [![](https://jitpack.io/v/lvfaqiang/AndroidUtils.svg)](https://jitpack.io/#lvfaqiang/AndroidUtils)
 
 # How to 
-##从 1.1.3 版本开始调整使用 jcenter 依赖：
+## 从 1.1.3 版本开始调整使用 jcenter 依赖：
 
     compile 'com.lfq:AndroidUtils:1.1.3'
     
