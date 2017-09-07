@@ -4,6 +4,11 @@
 [![](https://jitpack.io/v/lvfaqiang/AndroidUtils.svg)](https://jitpack.io/#lvfaqiang/AndroidUtils)
 
 # How to 
+##从 1.1.3 版本开始调整使用 jcenter 依赖：
+
+    compile 'com.lfq:AndroidUtils:1.1.3'
+    
+## 1.1.2 版本及以前版本用法
 先在 build.gradle(Project:XXXX) 的 repositories 添加:
 
     allprojects {
@@ -12,10 +17,10 @@
 			maven { url 'https://jitpack.io' }
 		}
 	}
-# 添加依赖
+### 添加依赖
 	compile 'com.github.lvfaqiang:AndroidUtils:VERSION_CODE'
 	
-最新[版本号](https://github.com/lvfaqiang/AndroidUtils/releases)戳这里
+最新[版本号](https://github.com/lvfaqiang/AndroidUtils/releases)(**注:** 1.1.3+ 请更换 Jcenter 依赖)
 
 [功能清单](https://github.com/lvfaqiang/AndroidUtils/wiki)
 
