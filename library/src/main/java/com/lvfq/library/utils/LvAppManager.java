@@ -111,15 +111,19 @@ public class LvAppManager {
 
     /**
      * 退出应用程序
+     *
+     * @param isKill 是否调用 killProcess 彻底退出
      */
-    public void AppExit() {
+    public void AppExit(boolean isKill) {
         try {
             if (activityStack != null) {
                 finishAllActivity();
             }
 //            ActivityManager activityMgr = (ActivityManager) LvUtils.getContext().getSystemService(Context.ACTIVITY_SERVICE);
 //            activityMgr.restartPackage( LvUtils.getContext().getPackageName());
-            android.os.Process.killProcess(android.os.Process.myPid());
+            if (isKill) {
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
             System.exit(0);
         } catch (Exception e) {
             e.printStackTrace();

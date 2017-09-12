@@ -214,7 +214,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
         int id = v.getId();
         if (id == R.id.tv_dialog_download_cancel) {
             if (isMustUpdate) {
-                LvAppManager.getAppManager().AppExit();
+                LvAppManager.getAppManager().AppExit(true);
             }
             dismiss();
         }
