@@ -35,7 +35,7 @@ publish {
     userOrg = 'lvfaqiang'//bintray.com注册的用户名
     groupId = 'com.lfq'//jcenter上的路径
     artifactId = 'AndroidUtils'//上传到 Jcenter 的项目名称
-    publishVersion = '1.1.3'//版本号
+    publishVersion = '1.1.4'//版本号
     desc = '整理项目常用的各种工具类'//选填
     website = 'https://github.com/lvfaqiang/AndroidUtils'//选填；可以填写你 Github 上的当前项目地址。
 }

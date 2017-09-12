@@ -53,7 +53,7 @@
 
 [LvScreenUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvScreenUtil.java) - 获取屏幕尺寸工具类
 
-[LvNumberUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvNumberUtil.java) - 数学相关工具类
+[LvNumberUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvNumberUtil.java) - 数字相关工具类
 
 [LvDateUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvDateUtil.java) - 日期工具类
 
