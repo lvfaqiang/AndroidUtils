@@ -1,9 +1,13 @@
 package com.lvfq.library.utils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.telephony.TelephonyManager;
+
+import java.io.File;
 
 /**
  * LvAndroidUtil
@@ -81,5 +85,37 @@ public class LvAndroidUtil {
             return diff > 0 ? 1 : -1;
         }
     }
+
+    /**
+     * 安装 Apk 文件
+     *
+     * @param path       apk 路径
+     * @param apkName    apk 名称
+     * @param intentFlag 设置 Intent 跳转 Flag
+     */
+    public static void installApk(String path, String apkName, int intentFlag) {
+        File apkfile = new File(path, apkName);
+        if (!apkfile.exists()) {
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        if (intentFlag != -1) {
+            intent.setFlags(intentFlag);
+        }
+        intent.setDataAndType(Uri.parse("file://" + apkfile.toString()),
+                "application/vnd.android.package-archive");
+        LvUtils.getContext().startActivity(intent);
+    }
+
+    /**
+     * 安装 Apk 文件
+     *
+     * @param path    apk 路径
+     * @param apkName apk 名称
+     */
+    public static void installApk(String path, String apkName) {
+        installApk(path, apkName, -1);
+    }
+
 
 }
