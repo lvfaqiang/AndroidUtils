@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/str_update"
-            android:textColor="@color/color_red"
+            android:textColor="@color/red"
             android:textSize="@dimen/sp_15" />
 
     </LinearLayout>

@@ -33,7 +33,9 @@
 [更新日志](https://github.com/lvfaqiang/AndroidUtils/wiki/Log)
 
 ## 资源文件
-[dimens.xml](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/res/values/dimens.xml) - 尺寸单位（1-100dp , 1-30sp , 1-100px） 
+[dimens.xml](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/res/values/dimens.xml) - 尺寸单位（1-375dp , 1-50sp , 1-375px）
+
+[colors.xml](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/res/values/colors.xml) - 整理了几个项目所用的颜色值（c_xxxxxx : 表示 完整颜色值 , color_ab : 表示 ababab 类型颜色值）
 
 ## 工具类列表：
 
