@@ -4,16 +4,14 @@
 # How to 
 ## 从 1.1.3 版本开始调整以下依赖方式
 ### Jcenter 
-    compile 'com.lfq:AndroidUtils:1.1.5'
+    compile 'com.lfq:AndroidUtils:1.1.5'
 ### maven
     <dependency>
       <groupId>com.lfq</groupId>
       <artifactId>AndroidUtils</artifactId>
-      <version>1.1.5</version>
+      <version>1.1.5</version>
       <type>pom</type>
     </dependency>
-
-    
 ## 1.1.2 版本及以前版本用法
 先在 build.gradle(Project:XXXX) 的 repositories 添加:
 
