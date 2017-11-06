@@ -2,7 +2,10 @@ package com.lvfq.library.utils;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.EditText;
 
 /**
  * LvV
@@ -61,5 +64,20 @@ public class LvV {
                 view.setOnClickListener(listener);
             }
         }
+    }
+
+    /**
+     * 是否显示明文密码
+     *
+     * @param editText
+     * @param isShow
+     */
+    public static void showPassEdit(EditText editText, boolean isShow) {
+        if (isShow) {
+            // 明文
+            editText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        } else
+            // 密文
+            editText.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
 }

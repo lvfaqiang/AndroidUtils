@@ -4,12 +4,12 @@
 # How to 
 ## 从 1.1.3 版本开始调整以下依赖方式
 ### Jcenter 
-    compile 'com.lfq:AndroidUtils:1.1.5'
+    compile 'com.lfq:AndroidUtils:1.1.6'
 ### maven
     <dependency>
       <groupId>com.lfq</groupId>
       <artifactId>AndroidUtils</artifactId>
-      <version>1.1.5</version>
+      <version>1.1.6</version>
       <type>pom</type>
     </dependency>
 ## 1.1.2 版本及以前版本用法
@@ -39,7 +39,7 @@
 
 [LvDPUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvDPUtil.java) - 根据屏幕分辨率像素和 dp 互转，获取顶部状态栏高度
 
-[LvV.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvV.java) - 简化 findViewById 方法
+[LvV.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvV.java) - 简化 findViewById ,显示明文密码，点击事件等 方法
 
 [LvViewHolder.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvViewHolder.java) - 简化 ListView，GridView 的ViewHolder [Blog地址](http://blog.csdn.net/lv_fq/article/details/51913515)
 
@@ -66,6 +66,8 @@
 [LvAndroidUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvAndroidUtil.java) - Android工具类(获取设备号，版本号..)
 
 [LvKeyBoardUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvKeyBoardUtil.java) - 键盘控制类
+
+[FragmentUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/FragmentUtil.java) - Fragment 控制类，目前主要用于切换界面中的多个 Fragment 显示
 
 ## 功能整理
 [LvDownloadDialog](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/LvDownloadDialog.java) - 版本更新提示
