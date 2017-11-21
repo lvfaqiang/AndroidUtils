@@ -1,6 +1,7 @@
 # AndroidUtils
 整理项目常用的各种工具类
-##<font color="blue">注</font> ： 2.0 版本调整除 LvUtils ， LvLog 之外，其他工具类全部移除 Lv 前缀。
+
+## <font color="blue">注</font> ： 2.0 版本调整除 LvUtils ， LvLog 之外，其他工具类全部移除 Lv 前缀。
 # How to 
 ## 从 1.1.3 版本开始调整以下依赖方式
 ### Jcenter 
