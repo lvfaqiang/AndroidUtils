@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.google.gson.reflect.TypeToken;
-import com.lvfq.library.utils.LvDownloadDialog;
+import com.lvfq.library.utils.DownloadDialog;
 import com.lvfq.library.utils.LvLog;
 import com.lvfq.library.utils.LvUtils;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_click).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LvDownloadDialog dialog = new LvDownloadDialog(MainActivity.this, "http://android.minsutx.cn/Hostay.apk");
+                DownloadDialog dialog = new DownloadDialog(MainActivity.this, "http://android.minsutx.cn/Hostay.apk");
                 dialog.setMustUpdate(true);
                 dialog.show();
             }

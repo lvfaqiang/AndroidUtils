@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 /**
- * LvKeyBoardUtil
+ * KeyBoardUtil
  *
  * @author lvfq
  * @Github: https://github.com/lvfaqiang
@@ -15,7 +15,7 @@ import android.view.inputmethod.InputMethodManager;
  * @desc : 键盘工具类
  */
 
-public class LvKeyBoardUtil {
+public class KeyBoardUtil {
 
     /**
      * 弹出软键盘

@@ -11,14 +11,14 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * LvEmptyUtil
+ * EmptyUtil
  *
  * @author lvfq
  * @date 2017/6/18 下午12:26
  * @mainFunction : 判断对象是否为空工具类。
  */
 
-public class LvEmptyUtil {
+public class EmptyUtil {
 
     /**
      * 判断对象是否为空

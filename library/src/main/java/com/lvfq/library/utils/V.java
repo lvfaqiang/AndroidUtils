@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 
 /**
- * LvV
+ * V
  *
  * @author lvfq
  * @date 2017/4/9 下午3:09
  * @mainFunction :
  */
 
-public class LvV {
+public class V {
 
     /**
      * 简化Activity里面的 findViewById

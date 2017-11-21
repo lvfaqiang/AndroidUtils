@@ -4,7 +4,6 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.lvfq.library.utils.LvSpUtil;
 
 
 /**
@@ -17,7 +16,7 @@ import com.lvfq.library.utils.LvSpUtil;
  * @desc :
  */
 
-public class SpUtil extends LvSpUtil {
+public class SpUtil extends com.lvfq.library.utils.SpUtil {
     /**
      * 保存对象（所有类型）
      *

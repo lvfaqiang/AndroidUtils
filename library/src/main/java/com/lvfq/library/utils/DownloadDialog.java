@@ -27,7 +27,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * LvDownloadDialog
+ * DownloadDialog
  *
  * @author lvfq
  * @Github: https://github.com/lvfaqiang
@@ -36,7 +36,7 @@ import java.net.URL;
  * @desc :
  */
 
-public class LvDownloadDialog extends AlertDialog implements View.OnClickListener {
+public class DownloadDialog extends AlertDialog implements View.OnClickListener {
 
     /* 下载中 */
     private static final int DOWNLOAD = 1;
@@ -91,7 +91,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * @param apkName
      */
     public void setApkName(String apkName) {
-        if (LvEmptyUtil.isNull(apkName)) {
+        if (EmptyUtil.isNull(apkName)) {
             throw new NullPointerException("download apkName is null");
         }
         this.apkName = apkName;
@@ -126,18 +126,18 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * @param isMustUpdate 是否强制更新
      * @param scale        宽度比
      */
-    public LvDownloadDialog(Context context, String downlaodUrl, String apkName, boolean isMustUpdate, float scale) {
+    public DownloadDialog(Context context, String downlaodUrl, String apkName, boolean isMustUpdate, float scale) {
         super(context);
         this.context = context;
         this.isMustUpdate = isMustUpdate;
 
-        if (LvEmptyUtil.isNull(downlaodUrl)) {
+        if (EmptyUtil.isNull(downlaodUrl)) {
             throw new RuntimeException("downloadPath can't is null");
         } else {
             this.downlaodPath = downlaodUrl;
         }
 
-        if (LvEmptyUtil.isNotNull(apkName)) {
+        if (EmptyUtil.isNotNull(apkName)) {
             this.apkName = apkName;
         }
         if (scale != 0) {
@@ -150,7 +150,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * @param downlaodUrl 下载路径
      * @param apkName     安装包名称
      */
-    public LvDownloadDialog(Context context, String downlaodUrl, String apkName) {
+    public DownloadDialog(Context context, String downlaodUrl, String apkName) {
         this(context, downlaodUrl, apkName, false, 0);
     }
 
@@ -158,7 +158,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * @param context
      * @param downlaodUrl 下载路径
      */
-    public LvDownloadDialog(Context context, String downlaodUrl) {
+    public DownloadDialog(Context context, String downlaodUrl) {
         this(context, downlaodUrl, "", false, 0);
     }
 
@@ -206,7 +206,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
      * @return
      */
     private <T extends View> T f(int resId) {
-        return LvV.find(this, resId);
+        return V.find(this, resId);
     }
 
     @Override
@@ -214,7 +214,7 @@ public class LvDownloadDialog extends AlertDialog implements View.OnClickListene
         int id = v.getId();
         if (id == R.id.tv_dialog_download_cancel) {
             if (isMustUpdate) {
-                LvAppManager.getAppManager().AppExit(true);
+                AppManager.getAppManager().AppExit(true);
             }
             dismiss();
         }

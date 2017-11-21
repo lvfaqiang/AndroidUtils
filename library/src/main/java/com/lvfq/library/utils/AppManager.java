@@ -5,26 +5,26 @@ import android.app.Activity;
 import java.util.Stack;
 
 /**
- * LvAppManager
+ * AppManager
  *
  * @author lvfq
  * @date 2017/6/16 上午10:22
  * @mainFunction : Activity 管理类。
  */
 
-public class LvAppManager {
+public class AppManager {
     private static Stack<Activity> activityStack;
-    private static LvAppManager instance;
+    private static AppManager instance;
 
-    private LvAppManager() {
+    private AppManager() {
     }
 
     /**
      * 单一实例
      */
-    public static LvAppManager getAppManager() {
+    public static AppManager getAppManager() {
         if (instance == null) {
-            instance = new LvAppManager();
+            instance = new AppManager();
         }
         return instance;
     }

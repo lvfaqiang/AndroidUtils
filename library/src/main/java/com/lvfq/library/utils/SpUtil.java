@@ -24,7 +24,7 @@ import java.util.List;
  * 封装了对Sp数据存储的基本操作
  * -------------------------------------------
  */
-public class LvSpUtil {
+public class SpUtil {
     private static String SP_NAME;
     private static SharedPreferences sp;
 
@@ -42,7 +42,7 @@ public class LvSpUtil {
 
     private static SharedPreferences getSp() {
         if (TextUtils.isEmpty(SP_NAME)) {
-            throw new RuntimeException("Please call LvSpUtil initSp method in your Application");
+            throw new RuntimeException("Please call SpUtil initSp method in your Application");
         }
         if (sp == null) {
             sp = LvUtils.getContext().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);

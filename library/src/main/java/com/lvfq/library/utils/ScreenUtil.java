@@ -5,14 +5,14 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 /**
- * LvScreenUtil
+ * ScreenUtil
  *
  * @author lvfq
  * @date 2017/6/18 下午3:53
  * @mainFunction : 屏幕尺寸相关工具类
  */
 
-public class LvScreenUtil {
+public class ScreenUtil {
 
 
     /**

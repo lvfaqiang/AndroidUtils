@@ -6,14 +6,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * LvDateUtil
+ * DateUtil
  *
  * @author lvfq
  * @date 2017/7/9 上午10:19
  * @mainFunction :
  */
 
-public class LvDateUtil {
+public class DateUtil {
 
     /**
      * 获取当前时间戳为星期几

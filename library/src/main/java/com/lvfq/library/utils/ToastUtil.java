@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.Toast;
 
 /**
- * LvToastUtil
+ * ToastUtil
  *
  * @author lvfq
  * @date 2017/4/13 下午4:21
  * @mainFunction :
  */
 
-public class LvToastUtil {
+public class ToastUtil {
 
     /**
      * Toast提示框

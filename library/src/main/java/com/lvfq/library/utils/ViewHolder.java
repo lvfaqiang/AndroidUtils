@@ -12,7 +12,7 @@ import android.view.View;
  * 示例:TextView shopName=ViewHolder.get(contentView, R.id.xxx);
  * -------------------------------------------
  */
-public class LvViewHolder {
+public class ViewHolder {
     @SuppressWarnings("unchecked")
     public static <T extends View> T get(View view, int id) {
         SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();

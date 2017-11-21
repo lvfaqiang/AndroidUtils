@@ -3,14 +3,14 @@ package com.lvfq.library.utils;
 import java.text.DecimalFormat;
 
 /**
- * LvNumberUtil
+ * NumberUtil
  *
  * @author lvfq
  * @date 2017/6/29 下午4:27
  * @mainFunction : 数字工具类
  */
 
-public class LvNumberUtil {
+public class NumberUtil {
 
     /**
      * 最多保留小数点后两位

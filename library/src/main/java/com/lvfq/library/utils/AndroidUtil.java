@@ -10,14 +10,14 @@ import android.telephony.TelephonyManager;
 import java.io.File;
 
 /**
- * LvAndroidUtil
+ * AndroidUtil
  *
  * @author lvfq
  * @date 2017/7/18 下午2:29
  * @mainFunction :
  */
 
-public class LvAndroidUtil {
+public class AndroidUtil {
 
     /**
      * 获取设备Id
@@ -44,6 +44,33 @@ public class LvAndroidUtil {
             packageInfo = pm.getPackageInfo(pn, 0);
             return packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * 获取应用图标
+     *
+     * @return
+     */
+    public static int getAppIcon() {
+        return LvUtils.getContext().getApplicationInfo().icon;
+    }
+
+    /**
+     * 获取应用名称
+     *
+     * @return
+     */
+    public static String getAppName() {
+        try {
+            return LvUtils.getContext().getPackageManager()
+                    .getApplicationLabel(
+                            LvUtils.getContext()
+                                    .getApplicationInfo())
+                    .toString();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "";
@@ -115,6 +142,27 @@ public class LvAndroidUtil {
      */
     public static void installApk(String path, String apkName) {
         installApk(path, apkName, -1);
+    }
+
+
+    /**
+     * 直接进行拨打电话
+     *
+     * @param phoneNum
+     */
+    public static void callPhoneAuto(String phoneNum) {
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNum));
+        LvUtils.getContext().startActivity(intent);
+    }
+
+    /**
+     * 跳转拨号界面，手动拨号
+     *
+     * @param phoneNum
+     */
+    public static void callPhone(String phoneNum) {
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNum));
+        LvUtils.getContext().startActivity(intent);
     }
 
 

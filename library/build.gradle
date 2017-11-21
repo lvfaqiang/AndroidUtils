@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '26.0.2'
 
     defaultConfig {
@@ -26,7 +26,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    provided 'com.android.support:appcompat-v7:25.2.0'
+    compileOnly 'com.android.support:appcompat-v7:26.1.0'
     testCompile 'junit:junit:4.12'
     implementation 'com.android.support:multidex:1.0.2'
 }
@@ -35,7 +35,7 @@ publish {
     userOrg = 'lvfaqiang'//bintray.com注册的用户名
     groupId = 'com.lfq'//jcenter上的路径
     artifactId = 'AndroidUtils'//上传到 Jcenter 的项目名称
-    publishVersion = '1.1.6'//版本号
+    publishVersion = '2.0'//版本号
     desc = '整理项目常用的各种工具类'//选填
     website = 'https://github.com/lvfaqiang/AndroidUtils'//选填；可以填写你 Github 上的当前项目地址。
 }

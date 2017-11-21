@@ -13,10 +13,10 @@ import com.lvfq.library.popwin.BasePickerView;
  * Date ： 2016/11/7 0007 下午 3:14
  * -------------------------------------------
  **/
-public class LvBottomPopwin extends BasePickerView {
+public class BottomPopwin extends BasePickerView {
     private Context context;
 
-    public LvBottomPopwin(Context context, int layoutId) {
+    public BottomPopwin(Context context, int layoutId) {
         super(context);
         this.context = context;
         LayoutInflater.from(context).inflate(layoutId, contentContainer);

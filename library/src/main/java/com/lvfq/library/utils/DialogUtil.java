@@ -11,14 +11,14 @@ import android.view.WindowManager;
 import com.lvfq.library.R;
 
 /**
- * LvDialogUtil
+ * DialogUtil
  *
  * @author lvfq
  * @date 2017/4/13 下午4:36
  * @mainFunction : 创建Dialog工具类。
  */
 
-public class LvDialogUtil {
+public class DialogUtil {
     /**
      * create Dialog
      *

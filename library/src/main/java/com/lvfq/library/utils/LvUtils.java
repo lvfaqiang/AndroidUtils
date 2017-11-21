@@ -34,7 +34,7 @@ public class LvUtils {
     }
 
     public static Context getContext() {
-        if (LvEmptyUtil.isNotNull(util) && LvEmptyUtil.isNotNull(util.context)) {
+        if (EmptyUtil.isNotNull(util) && EmptyUtil.isNotNull(util.context)) {
             return util.context;
         }
         throw new NullPointerException("u should init first - > LvUtils.init(Context) in your Application");
@@ -47,7 +47,7 @@ public class LvUtils {
      * @return
      */
     public LvUtils initSp(String spName) {
-        LvSpUtil.initSp(spName);
+        SpUtil.initSp(spName);
         return this;
     }
 
