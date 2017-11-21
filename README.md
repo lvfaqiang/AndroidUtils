@@ -10,7 +10,7 @@
     <dependency>
       <groupId>com.lfq</groupId>
       <artifactId>AndroidUtils</artifactId>
-      <version>1.1.6</version>
+      <version>2.0</version>
       <type>pom</type>
     </dependency>
 ## 1.1.2 版本及以前版本用法
