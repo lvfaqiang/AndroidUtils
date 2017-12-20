@@ -1,16 +1,16 @@
 # AndroidUtils
 整理项目常用的各种工具类
 
-## <font color="blue">注</font> ： 2.0 版本调整除 LvUtils ， LvLog 之外，其他工具类全部移除 Lv 前缀。
+## <font color="blue">注</font> ： 2.x 版本调整除 LvUtils ， LvLog 之外，其他工具类全部移除 Lv 前缀。
 # How to 
 ## 从 1.1.3 版本开始调整以下依赖方式
 ### Jcenter 
-    compile 'com.lfq:AndroidUtils:2.0.1'
+    compile 'com.lfq:AndroidUtils:2.0.2'
 ### maven
     <dependency>
       <groupId>com.lfq</groupId>
       <artifactId>AndroidUtils</artifactId>
-      <version>2.0.1</version>
+      <version>2.0.2</version>
       <type>pom</type>
     </dependency>
 ## 1.1.2 版本及以前版本用法
