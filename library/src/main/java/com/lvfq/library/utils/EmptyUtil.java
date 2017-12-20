@@ -1,6 +1,8 @@
 package com.lvfq.library.utils;
 
 import android.os.Build;
+import android.support.v4.util.LongSparseArray;
+import android.support.v4.util.SimpleArrayMap;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
@@ -16,6 +18,7 @@ import java.util.Map;
  * @author lvfq
  * @date 2017/6/18 下午12:26
  * @mainFunction : 判断对象是否为空工具类。
+ * 摘自 - https://github.com/Blankj/AndroidUtilCode
  */
 
 public class EmptyUtil {
@@ -30,7 +33,7 @@ public class EmptyUtil {
         if (obj == null) {
             return true;
         }
-        if (obj instanceof String && obj.toString().length() == 0) {
+        if (obj instanceof CharSequence && obj.toString().length() == 0) {
             return true;
         }
         if (obj.getClass().isArray() && Array.getLength(obj) == 0) {
@@ -40,6 +43,9 @@ public class EmptyUtil {
             return true;
         }
         if (obj instanceof Map && ((Map) obj).isEmpty()) {
+            return true;
+        }
+        if (obj instanceof SimpleArrayMap && ((SimpleArrayMap) obj).isEmpty()) {
             return true;
         }
         if (obj instanceof SparseArray && ((SparseArray) obj).size() == 0) {
@@ -53,6 +59,14 @@ public class EmptyUtil {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             if (obj instanceof SparseLongArray && ((SparseLongArray) obj).size() == 0) {
+                return true;
+            }
+        }
+        if (obj instanceof LongSparseArray && ((LongSparseArray) obj).size() == 0) {
+            return true;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (obj instanceof android.util.LongSparseArray && ((android.util.LongSparseArray) obj).size() == 0) {
                 return true;
             }
         }

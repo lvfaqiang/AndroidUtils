@@ -3,6 +3,7 @@ package com.lvfq.library.utils;
 import android.support.annotation.NonNull;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -95,7 +96,7 @@ public class EncodeUtil {
      * @param string
      * @return
      */
-    public static String UTF8(String string) {
+    public static String urlEncodeUtf8(String string) {
         try {
             return URLEncoder.encode(string, "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -103,4 +104,20 @@ public class EncodeUtil {
         }
         return "";
     }
+
+    /**
+     * 字符进行 url decode 解码
+     * @param string
+     * @return
+     */
+    public static String urlDecodeUtf8(String string) {
+        try {
+            return URLDecoder.decode(string, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+
 }

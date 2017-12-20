@@ -3,11 +3,11 @@ package com.lvfq.library.utils;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.telephony.TelephonyManager;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * AndroidUtil
@@ -15,6 +15,7 @@ import java.io.File;
  * @author lvfq
  * @date 2017/7/18 下午2:29
  * @mainFunction :
+ * 设备相关
  */
 
 public class AndroidUtil {
@@ -29,89 +30,16 @@ public class AndroidUtil {
         return TelephonyMgr.getDeviceId();
     }
 
-
     /**
-     * 获取当前应用版本
+     * 安装 Apk 文件
      *
-     * @return 当前应用版本号 "1.0.0"
-     * @throws Exception
+     * @param path    apk 路径
+     * @param apkName apk 名称
      */
-    public static String getVersionName() {
-        PackageManager pm = LvUtils.getContext().getPackageManager();
-        String pn = LvUtils.getContext().getPackageName();
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = pm.getPackageInfo(pn, 0);
-            return packageInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return "";
+    public static void installApk(String path, String apkName) {
+        installApk(path, apkName, -1);
     }
 
-    /**
-     * 获取应用图标
-     *
-     * @return
-     */
-    public static int getAppIcon() {
-        return LvUtils.getContext().getApplicationInfo().icon;
-    }
-
-    /**
-     * 获取应用名称
-     *
-     * @return
-     */
-    public static String getAppName() {
-        try {
-            return LvUtils.getContext().getPackageManager()
-                    .getApplicationLabel(
-                            LvUtils.getContext()
-                                    .getApplicationInfo())
-                    .toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    /**
-     * 比较两个版本的大小
-     *
-     * @param version1
-     * @param version2
-     * @return 返回0和-1，-1表示小于后面的版本
-     */
-    public static int compareVersion(String version1, String version2) {
-        if (version1.equals(version2)) {
-            return 0;
-        }
-        String[] version1Array = version1.split("\\.");
-        String[] version2Array = version2.split("\\.");
-        int index = 0;
-        int minLen = Math.min(version1Array.length, version2Array.length);
-        int diff = 0;
-        while (index < minLen && (diff = Integer.parseInt(version1Array[index]) - Integer.parseInt(version2Array[index])) == 0) {
-            index++;
-        }
-        if (diff == 0) {
-            for (int i = index; i < version1Array.length; i++) {
-                if (Integer.parseInt(version1Array[i]) > 0) {
-                    return 1;
-                }
-            }
-            for (int i = index; i < version2Array.length; i++) {
-                if (Integer.parseInt(version2Array[i]) > 0) {
-                    return -1;
-                }
-            }
-
-            return 0;
-        } else {
-            return diff > 0 ? 1 : -1;
-        }
-    }
 
     /**
      * 安装 Apk 文件
@@ -135,35 +63,21 @@ public class AndroidUtil {
     }
 
     /**
-     * 安装 Apk 文件
+     * 是否安装了某应用
      *
-     * @param path    apk 路径
-     * @param apkName apk 名称
+     * @param packageName
+     * @return
      */
-    public static void installApk(String path, String apkName) {
-        installApk(path, apkName, -1);
+    public static boolean isInstallApp(String packageName) {
+        List<PackageInfo> packages = LvUtils.getContext().getPackageManager().getInstalledPackages(0);
+        if (packages != null && packages.size() > 0) {
+            for (PackageInfo info : packages) {
+                if (packageName.equals(info.packageName)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
-
-
-    /**
-     * 直接进行拨打电话
-     *
-     * @param phoneNum
-     */
-    public static void callPhoneAuto(String phoneNum) {
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNum));
-        LvUtils.getContext().startActivity(intent);
-    }
-
-    /**
-     * 跳转拨号界面，手动拨号
-     *
-     * @param phoneNum
-     */
-    public static void callPhone(String phoneNum) {
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNum));
-        LvUtils.getContext().startActivity(intent);
-    }
-
 
 }

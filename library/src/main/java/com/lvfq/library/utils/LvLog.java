@@ -1,6 +1,8 @@
 package com.lvfq.library.utils;
 
-import android.util.Log;
+import com.lvfq.library.impl.LogOff;
+import com.lvfq.library.impl.LogOn;
+import com.lvfq.library.impl.LogState;
 
 /**
  * @author lvfq 日志管理
@@ -8,7 +10,7 @@ import android.util.Log;
  */
 public class LvLog {
     private static String TAG = "LvUtils";   // default value
-    private static boolean on = true;    // default open
+    private static LogState logState = new LogOn();    // default open
 
     /**
      * initSp configure
@@ -18,61 +20,57 @@ public class LvLog {
      */
     public static void initLog(String tag, boolean isOpen) {
         TAG = tag;
-        on = isOpen;
+        setLogEnable(isOpen);
     }
 
     /**
      * 开关
      */
     public static void setLogEnable(boolean flag) {
-        on = flag;
+        if (flag) {
+            logState = new LogOn();
+        } else {
+            logState = new LogOff();
+        }
     }
 
     public static void i(String msg) {
-        if (on) {
-            Log.i(TAG, msg);
-        }
+        i(TAG, msg);
     }
 
     public static void i(String tag, String msg) {
-        if (on) {
-            Log.i(tag, msg);
-        }
+        logState.i(tag, msg);
     }
 
     public static void e(String msg) {
-        if (on) {
-            Log.e(TAG, msg);
-        }
+        e(TAG, msg);
     }
 
     public static void e(String tag, String msg) {
-        if (on) {
-            Log.e(tag, msg);
-        }
+        logState.e(tag, msg);
     }
 
     public static void d(String msg) {
-        if (on) {
-            Log.d(TAG, msg);
-        }
+        d(TAG, msg);
     }
 
     public static void d(String tag, String msg) {
-        if (on) {
-            Log.d(tag, msg);
-        }
+        logState.d(tag, msg);
     }
 
     public static void v(String msg) {
-        if (on) {
-            Log.d(TAG, msg);
-        }
+        v(TAG, msg);
     }
 
     public static void v(String tag, String msg) {
-        if (on) {
-            Log.d(tag, msg);
-        }
+        logState.v(tag, msg);
+    }
+
+    public static void w(String tag, String msg) {
+        logState.w(tag, msg);
+    }
+
+    public static void w(String msg) {
+        w(TAG, msg);
     }
 }
