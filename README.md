@@ -46,6 +46,8 @@
 [AppUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/AppManager.java) - 应用相关工具类（获取版本号，对比版本，名称，图标等）
 ### B
 [BottomPopwin.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/BottomPopwin.java) - 底部弹出框工具类
+### C
+[CheckUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/CheckUtil.java) - 相关检查（Ps: checkNotNull 如果是 null 则抛出异常）
 ### D
 [DateUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/DateUtil.java) - 日期工具类
 

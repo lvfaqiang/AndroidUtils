@@ -1,4 +1,8 @@
 ## ChangeLog
+### 2017年12月21日
+新增 **CheckUtil**
+
+    checkNotNull(T t, Object) - 检测 T 如果是null，则抛出 NullPoint 并提示 String.valueOf(Object)
 ### 2017年12月20日
 去掉 Multidex 引用
 

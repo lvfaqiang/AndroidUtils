@@ -49,7 +49,10 @@
     popupWindow.setCancelable(true);
     popupWindow.show();
 效果图：![image](http://img.blog.csdn.net/20161113233620884)
+### C
+[CheckUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/CheckUtil.java) - 相关检查（Ps: checkNotNull 如果是 null 则抛出异常）
 
+    checkNotNull(T t, Object) - 检测 T 如果是null，则抛出 NullPoint 并提示 String.valueOf(Object)
 ### D
 [DateUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/DateUtil.java) - 日期工具类
 
