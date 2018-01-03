@@ -1,5 +1,6 @@
 package com.lvfq.library.utils;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -45,6 +46,15 @@ public class IntentUtil {
         startActivity(activity, clazz, null, requestCode);
     }
 
+    /**
+     * 跳转页面，用于 Activity 中调用
+     *
+     * @param activity 当前Activity
+     * @param clazz    目标类
+     */
+    public static void startActivity(FragmentActivity activity, Class clazz) {
+        startActivity(activity, clazz, -1);
+    }
 
 
     /**
@@ -75,6 +85,16 @@ public class IntentUtil {
         startActivity(fragment, clazz, null, requestCode);
     }
 
+    /**
+     * 跳转页面，用于 Fragment 中调用
+     *
+     * @param fragment 当前 Fragment
+     * @param clazz    目标类
+     */
+    public static void startActivity(Fragment fragment, Class clazz) {
+        startActivity(fragment, clazz, -1);
+    }
+
 
     /**
      * Intent 跳转界面
@@ -87,7 +107,12 @@ public class IntentUtil {
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        LvUtils.getContext().startActivity(intent);
+        Activity activity = AppManager.getAppManager().currentActivity();
+        try {
+            activity.startActivity(intent);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("the number of the activity is zero in AppManager, you can use startActivity(FragmentActivity activity, Class clazz)");
+        }
     }
 
     /**
@@ -95,7 +120,7 @@ public class IntentUtil {
      *
      * @param clazz 目标类
      */
-    public static void startIntent(Class clazz) {
+    public static void startActivity(Class clazz) {
         startActivity(clazz, null);
     }
 }

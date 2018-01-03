@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.google.gson.reflect.TypeToken;
+import com.lvfq.androidutil.activity.SecondActivity;
 import com.lvfq.library.utils.DownloadDialog;
+import com.lvfq.library.utils.IntentUtil;
 import com.lvfq.library.utils.LvLog;
 import com.lvfq.library.utils.LvUtils;
 
@@ -70,6 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 maps.entrySet()) {
             LvLog.i("map : " + en.getKey() + " , " + en.getValue().getName());
         }
-
+        IntentUtil.startActivity(SecondActivity.class);
     }
 }

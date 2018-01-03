@@ -1,4 +1,10 @@
 ## ChangeLog
+### 2018年01月03日
+调整 **IntentUtil** 类，
+
+    解决使用 Context 跳转提示 
+    Calling startActivity() from outside of an Activity  context requires the  
+                      FLAG_ACTIVITY_NEW_TASK flag. Is this really what you want?
 ### 2017年12月21日
 新增 **CheckUtil**
 
