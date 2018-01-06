@@ -1,4 +1,10 @@
 ## ChangeLog
+### 2018年01月07日
+DPUtil 新增 sp 和 px 互转 工具方法
+
+    sp2px(float)
+    px2sp(float)
+
 ### 2018年01月03日
 调整 **IntentUtil** 类，
 

@@ -103,16 +103,15 @@ public class IntentUtil {
      * @param bundle 参数
      */
     public static void startActivity(Class clazz, Bundle bundle) {
-        Intent intent = new Intent(LvUtils.getContext(), clazz);
+        Activity activity = AppManager.getAppManager().currentActivity();
+        if (activity == null) {
+            throw new IllegalArgumentException("the number of the activity is zero in AppManager, you can use startActivity(FragmentActivity activity, Class clazz)");
+        }
+        Intent intent = new Intent(activity, clazz);
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        Activity activity = AppManager.getAppManager().currentActivity();
-        try {
-            activity.startActivity(intent);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("the number of the activity is zero in AppManager, you can use startActivity(FragmentActivity activity, Class clazz)");
-        }
+        activity.startActivity(intent);
     }
 
     /**

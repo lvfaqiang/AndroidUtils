@@ -74,6 +74,8 @@
 
     dip2px(float);          - dip 转 Px
     px2dip(float);          - px 转 dip
+    sp2px(float);           - sp 转 px
+    px2sp(float);           - px 转 sp
     getStatusBarHeight();   - 获取状态栏高度
 ### E
 [EmptyUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/EmptyUtil.java) - 对象空判断工具类

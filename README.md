@@ -1,32 +1,9 @@
 # AndroidUtils
 整理项目常用的各种工具类
 
-## <font color="blue">注</font> ： 2.x 版本调整除 LvUtils ， LvLog 之外，其他工具类全部移除 Lv 前缀。
-# How to 
-## 从 1.1.3 版本开始调整以下依赖方式
-### Jcenter 
-    compile 'com.lfq:AndroidUtils:2.0.2'
-### maven
-    <dependency>
-      <groupId>com.lfq</groupId>
-      <artifactId>AndroidUtils</artifactId>
-      <version>2.0.2</version>
-      <type>pom</type>
-    </dependency>
-## 1.1.2 版本及以前版本用法
-先在 build.gradle(Project:XXXX) 的 repositories 添加:
+[用法说明](https://github.com/lvfaqiang/AndroidUtils/blob/master/Usage.md)
 
-    allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-### 添加依赖
-	compile 'com.github.lvfaqiang:AndroidUtils:VERSION_CODE'
-	
-
-[历史版本](https://github.com/lvfaqiang/AndroidUtils/releases)(**注:** 1.1.3+ 请更换 Jcenter / maven 依赖)
+[历史版本](https://github.com/lvfaqiang/AndroidUtils/tags)
 
 [功能清单](https://github.com/lvfaqiang/AndroidUtils/blob/master/FUNLIST.md)
 
