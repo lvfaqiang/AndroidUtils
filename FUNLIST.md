@@ -38,6 +38,7 @@
     getAppName()                   - 获取当前应用名称
     isAppRunningForeground()       - 当前 App 是否运行在前台
     isServiceRunning(String)       - 判断某个服务是否在运行
+    startToCamera(...)             - 唤起系统相机，进行拍照。并且返回照片路径
 ### B
 [BottomPopwin.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/BottomPopwin.java) - 底部弹出框工具类
 
@@ -113,6 +114,8 @@
                          
     startActivity(Class clazz, Bundle bundle)   - 跳转指定界面，携带参数；
     startActivity(Class clazz)                  - 直接跳转指定界面；
+    ------
+    startAction(...)                            - 通过自定义、或者调用系统的 Action 来唤醒 Intent跳转
     
 ### K
 [KeyBoardUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/KeyBoardUtil.java) - 键盘控制类

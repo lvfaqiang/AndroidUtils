@@ -22,4 +22,6 @@
 ### 添加依赖
 	compile 'com.github.lvfaqiang:AndroidUtils:LATEST_VERSION'
 	
-[版本号列表](https://github.com/lvfaqiang/AndroidUtils/tags)(**注:** 1.1.3+ 请更换 Jcenter / maven 依赖) 
+Ps： LATEST_VERSION 请更换为[版本号列表](https://github.com/lvfaqiang/AndroidUtils/tags)中的对应版本号
+
+(**注:** 1.1.3+ 请更换 Jcenter / maven 依赖) 

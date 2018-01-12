@@ -18,6 +18,15 @@ import android.support.v4.app.FragmentActivity;
 
 public class IntentUtil {
 
+
+/**
+ *
+ *    -----------------------------------------------通过指定目标 Class 来进行 Intent 跳转------------
+ *
+ *
+ *
+ */
+
     /**
      * 跳转页面，用于 Activity 中调用
      *
@@ -122,4 +131,136 @@ public class IntentUtil {
     public static void startActivity(Class clazz) {
         startActivity(clazz, null);
     }
+
+/**
+ *
+ *
+ *
+ *  -----------------------------------------------通过指定 Intent 的 Action 参数 来匹配相关 Intent 跳转 ，可执行一些系统级别的 Intent 调用------------
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+    /**
+     * 通过 Intent 的 Action 来进行跳转，
+     *
+     * @param activity    当前跳转的 FragmentActivity，用于接收 requestCode
+     * @param action      传入 Intent 的 Action
+     * @param bundle      携带的参数
+     * @param requestCode 请求码
+     */
+    public static void startAction(FragmentActivity activity, String action, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(action);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        try {
+            activity.startActivityForResult(intent, requestCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 相关介绍请查看 {@link #startAction(FragmentActivity, String, Bundle, int)}
+     */
+    public static void startAction(FragmentActivity activity, String action, Bundle bundle) {
+        startAction(activity, action, bundle, -1);
+    }
+
+    /**
+     * 相关介绍请查看 {@link #startAction(FragmentActivity, String, Bundle, int)}
+     */
+    public static void startAction(FragmentActivity activity, String action, int requestCode) {
+        startAction(activity, action, null, requestCode);
+    }
+
+    /**
+     * 相关介绍请查看 {@link #startAction(FragmentActivity, String, Bundle, int)}
+     */
+    public static void startAction(FragmentActivity activity, String action) {
+        startAction(activity, action, null, -1);
+    }
+
+    /**
+     * 通过 Intent 的 Action 来进行跳转，
+     *
+     * @param fragment    当前跳转的 Fragment，用于接收 requestCode
+     * @param action      传入 Intent 的 Action
+     * @param bundle      携带的参数
+     * @param requestCode 请求码
+     */
+    public static void startAction(Fragment fragment, String action, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(action);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        try {
+            fragment.startActivityForResult(intent, requestCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 相关介绍请查看 {@link #startAction(Fragment, String, Bundle, int)}
+     */
+    public static void startAction(Fragment fragment, String action, Bundle bundle) {
+        startAction(fragment, action, bundle, -1);
+    }
+
+    /**
+     * 相关介绍请查看 {@link #startAction(Fragment, String, Bundle, int)}
+     */
+    public static void startAction(Fragment fragment, String action, int requestCode) {
+        startAction(fragment, action, null, requestCode);
+    }
+
+    /**
+     * 相关介绍请查看 {@link #startAction(Fragment, String, Bundle, int)}
+     */
+    public static void startAction(Fragment fragment, String action) {
+        startAction(fragment, action, null, -1);
+    }
+
+    /**
+     * 通过 Action 跳转
+     * 默认获取当前 Activity 栈中的最新 Activity 去执行跳转
+     *
+     * @param action Intent 的 action 参数
+     */
+    public static void startAction(String action) {
+        Activity activity = AppManager.getAppManager().currentActivity();
+        if (activity == null) {
+            throw new IllegalArgumentException("the number of the activity is zero in AppManager, you can use startActivity(FragmentActivity activity, Class clazz)");
+        }
+        // 判断当前 Activity 是否是 FragmentActivity 的父类
+        if (activity.getClass().isAssignableFrom(FragmentActivity.class)) {
+            startAction((FragmentActivity) activity, action);
+        }
+    }
+
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *                        --------------------------------- 扩展的一些可能常用的方法 --------------------
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+
 }

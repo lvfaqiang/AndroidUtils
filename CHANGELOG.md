@@ -1,5 +1,16 @@
 ## ChangeLog
-### 2018年01月07日
+### 2018年01月12日
+IntentUtil 修改
+
+    新增 startAction(...) 方法，适用于一些系统级跳转，和 根据自定义的 Action 跳转
+    
+AppUtil
+
+    新增 startToCamera(...) 方法，唤起系统相机，进行拍照。并且返回照片路径。
+    ps:
+        部分机型调用拍照界面需要在 manifest 文件中对相关 Activity 配置以下属性：
+        android:configChanges="orientation|keyboardHidden|screenSize|keyboard" 
+### 2018年01月07日 - 2.0.4
 DPUtil 新增 sp 和 px 互转 工具方法
 
     sp2px(float)
@@ -92,3 +103,5 @@ LvAndroidUtil 添加对比版本号方法；<br/>
 
 LvEmptyUtil 修改判断多个对象为空和不为空的方法名。
 
+### Other
+...

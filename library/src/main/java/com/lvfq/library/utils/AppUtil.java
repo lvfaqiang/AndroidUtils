@@ -6,7 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -167,5 +172,79 @@ public class AppUtil {
             }
         }
         return false;
+    }
+
+
+    /**
+     * 在 FragmentActivity 中调用系统拍照
+     *
+     * @param activity    当前 FragmentActivity
+     * @param requestCode 请求码，用于在 FragmentActivity 的 onActivityResult 中接收， super.onActivityResult... 可删可不删
+     * @param filePath    文件路径，用于自定义图片保存的地方
+     * @return 返回照片路径
+     */
+    public static String startToCamera(FragmentActivity activity, int requestCode, String filePath) {
+        return startToCamera(activity, null, requestCode, filePath);
+    }
+
+    /**
+     * 在 FragmentActivity 中调用系统拍照
+     *
+     * @param activity    当前 FragmentActivity
+     * @param requestCode 请求码，用于在 FragmentActivity 的 onActivityResult 中接收， super.onActivityResult... 可删可不删
+     * @return 返回照片路径(默认为当前应用的缓存路径)
+     */
+    public static String startToCamera(FragmentActivity activity, int requestCode) {
+        String filePath = LvUtils.getContext().getExternalCacheDir() + File.separator + System.currentTimeMillis() + ".png";
+        return startToCamera(activity, requestCode, filePath);
+    }
+
+    /**
+     * 在 Fragment 中调用系统拍照
+     *
+     * @param fragment    当前 Fragment
+     * @param requestCode 请求码，用于在 Fragment 的 onActivityResult 中接收，注意不要删除 super.onActivityResult... 此行代码
+     * @param filePath    文件路径，用于自定义图片保存的地方
+     * @return 返回照片路径
+     */
+    public static String startToCamera(Fragment fragment, int requestCode, String filePath) {
+        return startToCamera(null, fragment, requestCode, filePath);
+    }
+
+    /**
+     * 在 Fragment 中调用系统拍照
+     *
+     * @param fragment    当前 Fragment
+     * @param requestCode 请求码，用于在 Fragment 的 onActivityResult 中接收，注意不要删除 super.onActivityResult... 此行代码
+     * @return 返回照片路径(默认为当前应用的缓存路径)
+     */
+    public static String startToCamera(Fragment fragment, int requestCode) {
+        String filePath = LvUtils.getContext().getExternalCacheDir() + File.separator + System.currentTimeMillis() + ".png";
+        return startToCamera(fragment, requestCode, filePath);
+    }
+
+    /**
+     * 调用系统相机进行拍照
+     *
+     * @param activity    当前调用的 Activity
+     * @param fragment    当前调用的 Fragment
+     * @param requestCode 用于回调的请求码
+     * @param filePath    图片保存路径
+     * @return 返回文件路径
+     */
+    private static String startToCamera(FragmentActivity activity, Fragment fragment, int requestCode, String filePath) {
+        if (activity == null && fragment == null) {
+            throw new IllegalArgumentException("activity or fragment must be have one");
+        }
+        Uri uri = Uri.fromFile(new File(filePath));
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(MediaStore.EXTRA_OUTPUT, uri);
+
+        if (null != activity) {
+            IntentUtil.startAction(activity, MediaStore.ACTION_IMAGE_CAPTURE, bundle, requestCode);
+        } else {
+            IntentUtil.startAction(fragment, MediaStore.ACTION_IMAGE_CAPTURE, bundle, requestCode);
+        }
+        return uri.getEncodedPath();
     }
 }
