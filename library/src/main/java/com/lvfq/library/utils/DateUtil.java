@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * DateUtil
@@ -24,7 +25,7 @@ public class DateUtil {
      */
     public static String dayForWeek(long time) throws Throwable {
         String pTime = num_format(time, "EEEE");
-        SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE", Locale.getDefault());
         Date tmpDate = sdf.parse(pTime);
         String week = sdf.format(tmpDate);
         return week;
@@ -38,7 +39,7 @@ public class DateUtil {
      * @return 最终返回结果（格式为 type 格式）
      */
     public static String num_format(long time, String type) {
-        SimpleDateFormat sdf = new SimpleDateFormat(type);
+        SimpleDateFormat sdf = new SimpleDateFormat(type, Locale.getDefault());
         String date = sdf.format(new Date(time));
         return date;
     }
@@ -53,11 +54,10 @@ public class DateUtil {
     public static int birthDayToAge(String birthday, String formatType) {
         try {
             Calendar cal = Calendar.getInstance();
-            SimpleDateFormat formatter = new SimpleDateFormat(formatType);
+            SimpleDateFormat formatter = new SimpleDateFormat(formatType, Locale.getDefault());
             String mDateTime = formatter.format(cal.getTime());// 当前时间
             java.util.Date today = formatter.parse(mDateTime);
-            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
-                    formatType);
+            SimpleDateFormat sdf = new SimpleDateFormat(formatType, Locale.getDefault());
             java.util.Date birday = sdf.parse(birthday);// 当前对当前的情况
             int age = today.getYear() - birday.getYear();
             if (today.getMonth() == birday.getMonth()
@@ -152,7 +152,7 @@ public class DateUtil {
     public static String getTimes(Long inputTime, String symbol) {
         try {
             String ret = "";
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
             String date2 = sdf.format(new Date(inputTime));
             Date date = sdf.parse(date2);
             Calendar calendar = Calendar.getInstance();

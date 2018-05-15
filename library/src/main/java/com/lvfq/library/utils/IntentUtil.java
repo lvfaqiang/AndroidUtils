@@ -107,11 +107,12 @@ public class IntentUtil {
 
     /**
      * Intent 跳转界面
+     * 默认获取 AppManager 中的上层的 Activity 作为跳转类。
      *
      * @param clazz  目标类
      * @param bundle 参数
      */
-    public static void startActivity(Class clazz, Bundle bundle) {
+    public static void startActivity(Class clazz, Bundle bundle, int requestCode) {
         Activity activity = AppManager.getAppManager().currentActivity();
         if (activity == null) {
             throw new IllegalArgumentException("the number of the activity is zero in AppManager, you can use startActivity(FragmentActivity activity, Class clazz)");
@@ -120,17 +121,41 @@ public class IntentUtil {
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        activity.startActivity(intent);
+        activity.startActivityForResult(intent, requestCode);
     }
 
     /**
      * Intent 跳转界面
+     * {@link #startActivity(Class, Bundle, int)}
      *
      * @param clazz 目标类
      */
     public static void startActivity(Class clazz) {
         startActivity(clazz, null);
     }
+
+    /**
+     * Intent 跳转
+     * {@link #startActivity(Class, Bundle, int)}
+     *
+     * @param clazz  目标类
+     * @param bundle 携带数据
+     */
+    public static void startActivity(Class clazz, Bundle bundle) {
+        startActivity(clazz, bundle, -1);
+    }
+
+    /**
+     * Intent 跳转
+     * {@link #startActivity(Class, Bundle, int)}
+     *
+     * @param clazz       目标类
+     * @param requestCode 请求码
+     */
+    public static void startActivity(Class clazz, int requestCode) {
+        startActivity(clazz, null, requestCode);
+    }
+
 
 /**
  *

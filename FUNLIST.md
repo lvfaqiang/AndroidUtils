@@ -133,8 +133,26 @@
 ### N
 [NumberUtil](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/NumberUtil.java) - 数字相关工具类
 
-    maxKeepTwoDecimalPlaces(double); - 最多保留两位小数
-    keepTwoDecimalPlaces(double);    - 始终保留两位小数
+    maxKeepTwoDecimal(String); - 最多保留两位小数（超出四舍五入）
+    maxKeepTwoDecimalDown(String); - 最多保留两位小数（超出截取）
+    keepTwoDecimal(String);    - 始终保留两位小数（四舍五入）
+    keepTwoDecimalDown(String); - 始终保留两位小数（超出截取）
+    maxKeepDecimal(String , int) - 最多保留[int]位小数（超出四舍五入）
+    maxKeepDecimalDown(String , int) - 最多保留[int]位小数（超出截取）
+    keepDecimal(String , int) - 保留[int]位小数（超出四舍五入）
+    keepDecimalDown(String , int) - 保留[int]位小数（超出截取）
+
+### P
+[PopupWindowUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/PopupWindowUtil.java) - 快速创建 PopupWindow
+
+    PopupWindow popWin = new PopupWindowUtil(context , layoutid)
+                            .setWidth(int)
+                            .setHeight(int)
+                            .setOutsideTouchable(boolean)
+                            .setTouchable(boolean)
+                            .build();
+    View view = popWin.getContentView();    // 获取到 View 之后，可在外部实例化相关组件以及逻辑。
+
 ### S
 [ScreenUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/ScreenUtil.java) - 获取屏幕尺寸工具类
 
@@ -167,7 +185,7 @@
 ### T
 [ToastUtil.java](https://github.com/lvfaqiang/AndroidUtils/blob/master/library/src/main/java/com/lvfq/library/utils/ToastUtil.java) - Toast 工具类
 
-    支持传入自定义视图
+    支持传入自定义视图，（View or layoutId）
     -
     showToast   - 显示Toast
     cancel      - 取消Toast

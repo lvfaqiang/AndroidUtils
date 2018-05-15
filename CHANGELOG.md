@@ -1,4 +1,23 @@
 ## ChangeLog
+
+### 2018年05月15日
+新增 PopupWindowUtil  - 快速创建 PopupWindow;
+
+新增 NumberUtil 单元测试类
+
+NumberUtil ：
+
+    扩展保留数字小数位数相关方法。
+
+DateUtil 微调
+
+ToastUtil：
+
+    新增可传入 layoutId 方法。
+
+IntentUtil 微调
+
+
 ### 2018年01月12日
 IntentUtil 修改
 
