@@ -43,7 +43,7 @@ public class NumberUtil {
      * @return
      */
     public static String keepTwoDecimal(String number) {
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("#0.00");
         return df.format(new BigDecimal(number));
     }
 
@@ -54,7 +54,7 @@ public class NumberUtil {
      * @return
      */
     public static String keepTwoDecimalDown(String number) {
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("#0.00");
         return df.format(new BigDecimal(number).setScale(2, RoundingMode.DOWN));
     }
 
@@ -105,9 +105,13 @@ public class NumberUtil {
 
     private static String optionDecimal(String number, int count, String symbol, int mode) {
         if (count == 0) {
-            return String.valueOf(Double.valueOf(number).intValue());
+            try {
+                return String.valueOf(Integer.parseInt(number));
+            } catch (Exception e) {
+                return "0";
+            }
         }
-        StringBuilder stringBuilder = new StringBuilder("##.");
+        StringBuilder stringBuilder = new StringBuilder("#0.");
         for (int i = 0; i < count; i++) {
             stringBuilder.append(symbol);
         }

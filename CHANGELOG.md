@@ -1,4 +1,6 @@
 ## ChangeLog
+### 2018年05月30日
+调整 NumberUtil ，fix 传入 "0.xx" 返回 ".xx" 。
 
 ### 2018年05月15日
 新增 PopupWindowUtil  - 快速创建 PopupWindow;

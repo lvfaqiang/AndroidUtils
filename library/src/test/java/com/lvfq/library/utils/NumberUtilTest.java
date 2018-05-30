@@ -17,7 +17,7 @@ public class NumberUtilTest {
         String result0 = NumberUtil.maxKeepTwoDecimal("5.0");
         String result1 = NumberUtil.maxKeepTwoDecimal("5.1");
         String result2 = NumberUtil.maxKeepTwoDecimal("5.10");
-        String result3 = NumberUtil.maxKeepTwoDecimal("5.102");
+        String result3 = NumberUtil.maxKeepTwoDecimal("0.102");
         String result4 = NumberUtil.maxKeepTwoDecimal("5.109");
 
         System.out.println(result0);
@@ -33,7 +33,7 @@ public class NumberUtilTest {
         String result0 = NumberUtil.maxKeepTwoDecimalDown("5.0");
         String result1 = NumberUtil.maxKeepTwoDecimalDown("5.09");
         String result2 = NumberUtil.maxKeepTwoDecimalDown("5.10");
-        String result3 = NumberUtil.maxKeepTwoDecimalDown("5.102");
+        String result3 = NumberUtil.maxKeepTwoDecimalDown("0.102");
         String result4 = NumberUtil.maxKeepTwoDecimalDown("5.109");
 
         System.out.println(result0);
@@ -49,7 +49,7 @@ public class NumberUtilTest {
         String result1 = NumberUtil.keepTwoDecimal("5.09");
         String result2 = NumberUtil.keepTwoDecimal("5.10");
         String result3 = NumberUtil.keepTwoDecimal("5.102");
-        String result4 = NumberUtil.keepTwoDecimal("5.109");
+        String result4 = NumberUtil.keepTwoDecimal("0.109");
 
         System.out.println(result0);
         System.out.println(result1);
@@ -64,7 +64,7 @@ public class NumberUtilTest {
         String result1 = NumberUtil.keepTwoDecimalDown("5.09");
         String result2 = NumberUtil.keepTwoDecimalDown("5.10");
         String result3 = NumberUtil.keepTwoDecimalDown("5.102");
-        String result4 = NumberUtil.keepTwoDecimalDown("5.109");
+        String result4 = NumberUtil.keepTwoDecimalDown("0.109");
 
         System.out.println(result0);
         System.out.println(result1);
@@ -123,7 +123,7 @@ public class NumberUtilTest {
         String result0 = NumberUtil.keepDecimalDown("5.0", 2);
         String result1 = NumberUtil.keepDecimalDown("5.09", 1);
         String result2 = NumberUtil.keepDecimalDown("5.10", 2);
-        String result3 = NumberUtil.keepDecimalDown("5.102", 4);
+        String result3 = NumberUtil.keepDecimalDown("0.102", 4);
         String result4 = NumberUtil.keepDecimalDown("5.109", 2);
 
         System.out.println(result0);
