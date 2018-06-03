@@ -1,4 +1,6 @@
 ## ChangeLog
+### 2018年06月03日
+Update Jcenter Version 2.0.5
 ### 2018年05月30日
 调整 NumberUtil ，fix 传入 "0.xx" 返回 ".xx" 。
 

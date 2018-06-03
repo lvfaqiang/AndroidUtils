@@ -3,7 +3,7 @@ apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
 
     defaultConfig {
         minSdkVersion 15
@@ -34,7 +34,7 @@ publish {
     userOrg = 'lvfaqiang'//bintray.com注册的用户名
     groupId = 'com.lfq'//jcenter上的路径
     artifactId = 'AndroidUtils'//上传到 Jcenter 的项目名称
-    publishVersion = '2.0.4'//版本号
+    publishVersion = '2.0.5'//版本号
     desc = '整理项目常用的各种工具类'//选填
     website = 'https://github.com/lvfaqiang/AndroidUtils'//选填；可以填写你 Github 上的当前项目地址。
 }
