@@ -1,4 +1,6 @@
 ## ChangeLog
+### 2018年09月27日
+调整 ToastUtil 取消引用 LvUtils.getContext() , 直接以参数形式传入。
 ### 2018年06月03日
 Update Jcenter Version 2.0.5
 ### 2018年05月30日

@@ -1,6 +1,8 @@
 package com.lvfq.library.utils;
 
-import android.app.Activity;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
@@ -45,10 +47,9 @@ public class ToastUtil {
      * @param message 显示信息
      * @param gravity 显示位置
      */
-    public static void showToast(final String message, final int gravity, final int duration) {
-        final Activity context = AppManager.getAppManager().currentActivity();
+    public static void showToast(final Context context, final String message, final int gravity, final int duration) {
         if (context != null) {
-            context.runOnUiThread(new Runnable() {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
                     if (toast == null) {
@@ -71,7 +72,7 @@ public class ToastUtil {
      *
      * @param values 最少一个，最多三个  [layoutId , gravity , duration]
      */
-    public static void showToast(int... values) {
+    public static void showToast(Context context, int... values) {
         if (values.length <= 0) {
             return;
         }
@@ -85,8 +86,8 @@ public class ToastUtil {
             gravity = values[1];
         }
 
-        View view = View.inflate(LvUtils.getContext(), layoutId, null);
-        showToast(view, gravity, duration);
+        View view = View.inflate(context, layoutId, null);
+        showToast(context, view, gravity, duration);
     }
 
     /**
@@ -95,10 +96,9 @@ public class ToastUtil {
      * @param view    自定义视图
      * @param gravity 显示位置
      */
-    public static void showToast(final View view, final int gravity, final int duration) {
-        final Activity context = AppManager.getAppManager().currentActivity();
+    public static void showToast(final Context context, final View view, final int gravity, final int duration) {
         if (context != null) {
-            context.runOnUiThread(new Runnable() {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
                     if (toast == null) {
@@ -124,8 +124,8 @@ public class ToastUtil {
      *
      * @param message
      */
-    public static void showToast(String message) {
-        showToast(message, 0);
+    public static void showToast(Context context, String message) {
+        showToast(context, message, 0);
     }
 
     /**
@@ -133,8 +133,8 @@ public class ToastUtil {
      *
      * @param message
      */
-    public static void showToast(int gravity, String message) {
-        showToast(message, gravity, DURATION_DEF);
+    public static void showToast(Context context, int gravity, String message) {
+        showToast(context, message, gravity, DURATION_DEF);
     }
 
     /**
@@ -142,8 +142,8 @@ public class ToastUtil {
      *
      * @param message
      */
-    public static void showToast(String message, int duration) {
-        showToast(message, 0, duration);
+    public static void showToast(Context context, String message, int duration) {
+        showToast(context, message, 0, duration);
     }
 
     /**
@@ -151,8 +151,8 @@ public class ToastUtil {
      *
      * @param message
      */
-    public static void showToastCenter(String message) {
-        showToast(message, Gravity.CENTER);
+    public static void showToastCenter(Context context, String message) {
+        showToast(context, message, Gravity.CENTER);
     }
 
     /**
@@ -160,8 +160,8 @@ public class ToastUtil {
      *
      * @param view 自定义视图
      */
-    public static void showToast(View view) {
-        showToast(view, 0, DURATION_DEF);
+    public static void showToast(Context context, View view) {
+        showToast(context, view, 0, DURATION_DEF);
     }
 
     /**
@@ -169,8 +169,8 @@ public class ToastUtil {
      *
      * @param layoutId 自定义布局
      */
-    public static void showToast(int layoutId) {
-        showToast(layoutId, 0, DURATION_DEF);
+    public static void showToast(Context context, int layoutId) {
+        showToast(context, layoutId, 0, DURATION_DEF);
     }
 
     /**
@@ -178,8 +178,8 @@ public class ToastUtil {
      *
      * @param view 自定义视图
      */
-    public static void showToast(int gravity, View view) {
-        showToast(view, gravity, DURATION_DEF);
+    public static void showToast(Context context, int gravity, View view) {
+        showToast(context, view, gravity, DURATION_DEF);
     }
 
     /**
@@ -187,8 +187,8 @@ public class ToastUtil {
      *
      * @param view 自定义视图
      */
-    public static void showToast(View view, int duration) {
-        showToast(view, 0, duration);
+    public static void showToast(Context context, View view, int duration) {
+        showToast(context, view, 0, duration);
     }
 
 

@@ -94,7 +94,7 @@ public class NumberUtilTest {
         String result1 = NumberUtil.maxKeepDecimalDown("5.09", 1);  // 5
         String result2 = NumberUtil.maxKeepDecimalDown("5.10", 2);
         String result3 = NumberUtil.maxKeepDecimalDown("5.102", 0);
-        String result4 = NumberUtil.maxKeepDecimalDown("5.109", 2);
+        String result4 = NumberUtil.maxKeepDecimalDown("5.109005", 8);
 
         System.out.println(result0);
         System.out.println(result1);
@@ -124,7 +124,7 @@ public class NumberUtilTest {
         String result1 = NumberUtil.keepDecimalDown("5.09", 1);
         String result2 = NumberUtil.keepDecimalDown("5.10", 2);
         String result3 = NumberUtil.keepDecimalDown("0.102", 4);
-        String result4 = NumberUtil.keepDecimalDown("5.109", 2);
+        String result4 = NumberUtil.keepDecimalDown("5.1090004", 6);
 
         System.out.println(result0);
         System.out.println(result1);
